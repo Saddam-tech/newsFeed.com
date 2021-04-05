@@ -100,8 +100,8 @@ a:visited {
 }
 
 img {
-  width: 300px;
-  height: 300px;
+  width: 30%;
+  height: 100%;
 }
 
 .sub-main {
@@ -148,6 +148,12 @@ img {
   width: 100%;
   text-align: left;
 }
+.paragraph-news-3 {
+  font-size: 20px;
+  font-family: Optima, sans-serif;
+  width: 100%;
+  text-align: left;
+}
 
 footer {
   text-align: center;
@@ -158,12 +164,11 @@ footer {
   font-size: 0.9rem;
 }
 
-.instagram-link:visited,
-:active {
+.instagram-link:visited {
   color: #a3a3a3;
 }
 
-@media screen and (max-width: 728px) {
+@media screen and (max-width: 828px) {
   .main-container {
     width: 100%;
     margin: 0;
@@ -180,7 +185,7 @@ footer {
   }
 
   .sub-main-3 {
-    flex-direction: column;
+    flex-direction: row;
     border: none;
   }
 
@@ -190,7 +195,7 @@ footer {
   }
   .paragraph-news-2 {
     border-bottom: 2px solid black;
-    width: 100%;
+    width: 100px;
   }
 
   .main-h1 {
