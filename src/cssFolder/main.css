@@ -149,6 +149,20 @@ img {
   text-align: left;
 }
 
+footer {
+  text-align: center;
+  width: 100%;
+  background-color: #312a50;
+  color: #a3a3a3;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+}
+
+.instagram-link:visited,
+:active {
+  color: #a3a3a3;
+}
+
 @media screen and (max-width: 728px) {
   .main-container {
     width: 100%;
