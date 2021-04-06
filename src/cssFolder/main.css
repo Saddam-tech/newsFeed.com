@@ -4,6 +4,7 @@ body {
   justify-content: center;
   flex-direction: row;
 }
+
 .main-container {
   display: flex;
   align-items: center;
@@ -15,10 +16,19 @@ body {
   padding: 10px;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
 .sub-container {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  border-bottom: 2px solid black;
   width: 100%;
+  overflow: hidden;
 }
 
 .sub-container-column {
@@ -31,7 +41,6 @@ body {
 .vertical-alignment {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
 }
 
 html {
@@ -39,7 +48,7 @@ html {
 }
 
 nav {
-  width: 70%;
+  width: 100%;
 }
 
 ul {
@@ -47,7 +56,7 @@ ul {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
 }
 
@@ -64,7 +73,7 @@ a:visited {
 }
 
 .moving-container {
-  width: 95%;
+  width: 100%;
   height: 30px;
   border: 1px solid black;
   overflow: hidden;
@@ -76,21 +85,9 @@ a:visited {
   justify-content: space-around;
   width: 100%;
   height: 100%;
-  animation-name: example;
-  animation-duration: 4s infinite;
 }
 
-@keyframes example {
-  0% {
-    left: 0;
-    transform: translate(50px);
-  }
-  100% {
-    transform: translate(100px);
-  }
-}
-
-.main {
+.sub-main-1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,9 +96,17 @@ a:visited {
   padding: 10px;
 }
 
+.main-image {
+  width: 100%;
+  height: 250px;
+}
+
 img {
-  width: 30%;
-  height: 100%;
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .sub-main {
@@ -113,20 +118,10 @@ img {
 
 .sub-main-2 {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  font-size: 20px;
   border-bottom: 2px solid black;
-}
-
-.sub-main-3 {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: row;
-  border-bottom: 2px solid black;
-  width: 100%;
+  overflow: hidden;
 }
 
 .main-h1 {
@@ -139,25 +134,31 @@ img {
 }
 
 .paragraph-news {
-  font-size: 30px;
+  width: 30%;
+  font-size: 25px;
   font-family: Optima, sans-serif;
+  margin: 10px;
+  padding: 10px;
 }
 .paragraph-news-2 {
-  font-size: 20px;
+  font-size: 15px;
   font-family: Optima, sans-serif;
   width: 100%;
   text-align: left;
+  margin: 10px;
+  padding: 10px;
 }
-.paragraph-news-3 {
+
+.middle {
   font-size: 20px;
-  font-family: Optima, sans-serif;
-  width: 100%;
-  text-align: left;
 }
 
 footer {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  height: 10vh;
   background-color: #312a50;
   color: #a3a3a3;
   font-family: "Courier New", Courier, monospace;
@@ -169,19 +170,44 @@ footer {
 }
 
 @media screen and (max-width: 828px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+
   .main-container {
     width: 100%;
     margin: 0;
     padding: 0;
   }
 
+  .sub-container {
+    flex-direction: column;
+    border: none;
+    align-items: center;
+  }
+  .sub-container > .paragraph-news-2 {
+    font-size: 20px;
+    border-bottom: 2px solid black;
+    width: 100%;
+  }
+
   nav {
     display: none;
+  }
+  .sub-main-1 {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
   }
 
   .sub-main-2 {
     flex-direction: column;
+    align-items: center;
     border: none;
+    margin: 0;
+    padding: 0;
   }
 
   .sub-main-3 {
@@ -190,12 +216,9 @@ footer {
   }
 
   .paragraph-news {
+    font-size: 20px;
     border-bottom: 2px solid black;
     width: 100%;
-  }
-  .paragraph-news-2 {
-    border-bottom: 2px solid black;
-    width: 100px;
   }
 
   .main-h1 {
@@ -203,18 +226,27 @@ footer {
   }
 
   .main-h1-2 {
-    font-size: 25px;
-  }
-
-  .paragraph-news {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   img {
     width: 100%;
   }
 
-  .main {
+  .vertical-alignment {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .sub-container-column {
+    width: 100%;
+  }
+
+  .paragraph-news-2 {
+    border-bottom: 2px solid black;
+  }
+
+  .copyright {
+    font-size: 0.7rem;
   }
 }

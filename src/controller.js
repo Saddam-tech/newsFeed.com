@@ -14,7 +14,6 @@ const controlNews = async function () {
 
 const init = async function () {
   mainView.addHandlerRender(controlNews);
-  //   controlNews();
 };
 
 init();
