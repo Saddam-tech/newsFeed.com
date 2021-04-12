@@ -530,7 +530,7 @@ exports.createSpecificArticlesObject = createSpecificArticlesObject;
 
 const getSpecificArticles = async function (datasetNum) {
   try {
-    const data = await (0, _helpers.AJAX)(`${_config.API_URL}${_config.API_KEY}`);
+    const data = await (0, _helpers.AJAX)(`${_config.API_URL}=${_config.API_KEY}`);
     console.log(datasetNum);
     state.specificArticles = createSpecificArticlesObject(data.articles[datasetNum]);
   } catch (err) {
@@ -542,7 +542,7 @@ exports.getSpecificArticles = getSpecificArticles;
 
 const loadNews = async function () {
   try {
-    const data = await (0, _helpers.AJAX)(`${_config.API_URL}${_config.API_KEY}`);
+    const data = await (0, _helpers.AJAX)(`${_config.API_URL}=${_config.API_KEY}`);
     createArticlesObject(data);
     console.log(data);
   } catch (err) {
@@ -1308,7 +1308,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.API_KEY = exports.API_URL = void 0;
-const API_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=";
+const API_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey";
 exports.API_URL = API_URL;
 const API_KEY = "7c8b2e0da34e47fda378f9085c7f0fa7";
 exports.API_KEY = API_KEY;

@@ -32,7 +32,7 @@ export const createSpecificArticlesObject = function (data) {
 
 export const getSpecificArticles = async function (datasetNum) {
   try {
-    const data = await AJAX(`${API_URL}${API_KEY}`);
+    const data = await AJAX(`${API_URL}=${API_KEY}`);
     console.log(datasetNum);
     state.specificArticles = createSpecificArticlesObject(
       data.articles[datasetNum]
@@ -44,7 +44,7 @@ export const getSpecificArticles = async function (datasetNum) {
 
 export const loadNews = async function () {
   try {
-    const data = await AJAX(`${API_URL}${API_KEY}`);
+    const data = await AJAX(`${API_URL}=${API_KEY}`);
     createArticlesObject(data);
     console.log(data);
   } catch (err) {
