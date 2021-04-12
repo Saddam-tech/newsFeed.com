@@ -4,6 +4,7 @@ import { AJAX } from "./helpers";
 
 export const state = {
   articles: [],
+  specificArticles: {},
 };
 
 export const createArticlesObject = function (data) {
@@ -16,6 +17,29 @@ export const createArticlesObject = function (data) {
       image: art.urlToImage,
     };
   });
+};
+
+export const createSpecificArticlesObject = function (data) {
+  console.log(data);
+  return {
+    author: data.author,
+    content: data.content,
+    description: data.description,
+    title: data.title,
+    image: data.urlToImage,
+  };
+};
+
+export const getSpecificArticles = async function (datasetNum) {
+  try {
+    const data = await AJAX(`${API_URL}${API_KEY}`);
+    console.log(datasetNum);
+    state.specificArticles = createSpecificArticlesObject(
+      data.articles[datasetNum]
+    );
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const loadNews = async function () {
