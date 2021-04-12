@@ -8,6 +8,7 @@ const controlNews = async function () {
     mainView.renderSpinner();
     await model.loadNews();
     mainView.render(model.state.articles);
+    mainView.scrollInto();
   } catch (err) {
     console.error(err);
   }

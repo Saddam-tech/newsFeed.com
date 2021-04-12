@@ -24,4 +24,16 @@ export default class View {
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
+
+  scrollInto() {
+    this._parentElement.addEventListener("click", function (e) {
+      e.preventDefault();
+      // Matching strategy
+      if (e.target.classList.contains("data")) {
+        const id = e.target.getAttribute("href");
+        console.log(id);
+        document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
 }

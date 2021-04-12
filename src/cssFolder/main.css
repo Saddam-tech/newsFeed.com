@@ -184,6 +184,7 @@ a:visited {
   padding: 10px;
   transition: all 0.2s;
   cursor: pointer;
+  overflow: hidden;
 }
 .paragraph-news-2:hover {
   transform: scale(1.07);
@@ -208,7 +209,12 @@ footer {
 .instagram-link:visited {
   color: #a3a3a3;
 }
-
+/* .news-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+} */
 .individual-news {
   display: flex;
   align-items: center;
@@ -245,7 +251,7 @@ footer {
   width: 70%;
   cursor: pointer;
 }
-.container-first {
+.individual-logo-author {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -267,6 +273,11 @@ footer {
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+
+.spinner {
+  height: 100vh;
+  width: 100vh;
 }
 
 @media screen and (max-width: 828px) {
@@ -348,5 +359,35 @@ footer {
 
   .copyright {
     font-size: 0.7rem;
+  }
+
+  .individual-h1 {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  .individual-main-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .individual-h3-description {
+    font-size: 25px;
+    width: 100%;
+  }
+
+  .individual-content-div {
+    width: 100%;
+  }
+
+  .individual-p-content {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  .individual-logo-author {
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
   }
 }
