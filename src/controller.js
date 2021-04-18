@@ -25,6 +25,7 @@ const controlSpecificNews = async function (dataset) {
 const init = async function () {
   mainView.addHandlerRender(controlNews);
   mainView.addHandlerGetDataset(controlSpecificNews);
+  console.log(model.state.specificArticles);
 };
 
 init();

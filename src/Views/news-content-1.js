@@ -4,6 +4,7 @@ class NewsContent1 extends View {
   _parentElement = document.querySelector(".news-content");
 
   _generateMarkup() {
+    console.log(this._data);
     return `
           <div class="individual-news">
               <h1 class="individual-h1">
@@ -15,11 +16,9 @@ class NewsContent1 extends View {
               <p class="individual-author">${this._data.author}</p>
               <p class="individual-newsfeed-logo">NewsFeed news</p>
             </div>
-              <h3 class="individual-h3-description">
-              ${this._data.description}
-              </h3>
+              
               <p class="individual-p-content">
-              ${this._data.content}
+              ${this._data.description}
               </p>
             </div>
 
@@ -42,3 +41,9 @@ class NewsContent1 extends View {
 }
 
 export default new NewsContent1();
+
+{
+  /* <h3 class="individual-h3-description">
+              ${this._data.description}
+              </h3> */
+}

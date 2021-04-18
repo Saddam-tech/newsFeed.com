@@ -8,13 +8,13 @@ export const state = {
 };
 
 export const createArticlesObject = function (data) {
-  state.articles = data.articles.map(art => {
+  state.articles = data.data.map(art => {
     return {
-      author: art.author,
-      content: art.content,
+      author: art.source,
+      // content: art.content,
       description: art.description,
       title: art.title,
-      image: art.urlToImage,
+      image: art.image,
     };
   });
 };
@@ -22,20 +22,22 @@ export const createArticlesObject = function (data) {
 export const createSpecificArticlesObject = function (data) {
   console.log(data);
   return {
-    author: data.author,
-    content: data.content,
+    author: data.source,
+    // content: data.source,
     description: data.description,
     title: data.title,
-    image: data.urlToImage,
+    image: data.image,
   };
 };
 
 export const getSpecificArticles = async function (datasetNum) {
   try {
-    const data = await AJAX(`${API_URL}=${API_KEY}`);
+    const data = await AJAX(
+      `${API_URL}?access_key=${API_KEY}&languages=en&country=-us,-uk&sources=cnn,bbc`
+    );
     console.log(datasetNum);
     state.specificArticles = createSpecificArticlesObject(
-      data.articles[datasetNum]
+      data.data[datasetNum]
     );
   } catch (err) {
     console.error(err);
@@ -44,7 +46,9 @@ export const getSpecificArticles = async function (datasetNum) {
 
 export const loadNews = async function () {
   try {
-    const data = await AJAX(`${API_URL}=${API_KEY}`);
+    const data = await AJAX(
+      `${API_URL}?access_key=${API_KEY}&languages=en&country=-us,-uk&sources=cnn,bbc`
+    );
     createArticlesObject(data);
     console.log(data);
   } catch (err) {
