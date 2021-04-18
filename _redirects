@@ -1,0 +1,1 @@
+/api/* http://api.mediastack.com/api/:splat 200!
