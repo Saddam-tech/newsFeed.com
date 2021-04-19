@@ -16,9 +16,11 @@ class NewsContent1 extends View {
               <p class="individual-author">${this._data.author}</p>
               <p class="individual-newsfeed-logo">NewsFeed news</p>
             </div>
-              
+              <h3 class="individual-h3-description">
+                          ${this._data.description}
+              </h3> 
               <p class="individual-p-content">
-              ${this._data.description}
+              ${this._data.content}
               </p>
             </div>
 
@@ -41,9 +43,3 @@ class NewsContent1 extends View {
 }
 
 export default new NewsContent1();
-
-{
-  /* <h3 class="individual-h3-description">
-              ${this._data.description}
-              </h3> */
-}

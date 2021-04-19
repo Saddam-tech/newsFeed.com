@@ -504,13 +504,13 @@ const state = {
 exports.state = state;
 
 const createArticlesObject = function (data) {
-  state.articles = data.data.map(art => {
+  state.articles = data.articles.map(art => {
     return {
-      author: art.source,
-      // content: art.content,
+      author: art.author,
+      content: art.content,
       description: art.description,
       title: art.title,
-      image: art.image
+      image: art.urlToImage
     };
   });
 };
@@ -520,11 +520,11 @@ exports.createArticlesObject = createArticlesObject;
 const createSpecificArticlesObject = function (data) {
   console.log(data);
   return {
-    author: data.source,
-    // content: data.source,
+    author: data.author,
+    content: data.content,
     description: data.description,
     title: data.title,
-    image: data.image
+    image: data.urlToImage
   };
 };
 
@@ -532,9 +532,9 @@ exports.createSpecificArticlesObject = createSpecificArticlesObject;
 
 const getSpecificArticles = async function (datasetNum) {
   try {
-    const data = await (0, _helpers.AJAX)(`${_config.API_URL}?access_key=${_config.API_KEY}&languages=en&country=-us,-uk&sources=cnn,bbc`);
+    const data = await (0, _helpers.AJAX)(`${_config.API_URL}&apiKey=${_config.API_KEY}`);
     console.log(datasetNum);
-    state.specificArticles = createSpecificArticlesObject(data.data[datasetNum]);
+    state.specificArticles = createSpecificArticlesObject(data.articles[datasetNum]);
   } catch (err) {
     console.error(err);
   }
@@ -544,7 +544,7 @@ exports.getSpecificArticles = getSpecificArticles;
 
 const loadNews = async function () {
   try {
-    const data = await (0, _helpers.AJAX)(`${_config.API_URL}?access_key=${_config.API_KEY}&languages=en&country=-us,-uk&sources=cnn,bbc`);
+    const data = await (0, _helpers.AJAX)(`${_config.API_URL}&apiKey=${_config.API_KEY}`);
     createArticlesObject(data);
     console.log(data);
   } catch (err) {
@@ -1313,9 +1313,9 @@ exports.API_KEY = exports.API_URL = void 0;
 // export const API_URL =
 //   "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey";
 // export const API_KEY = "7c8b2e0da34e47fda378f9085c7f0fa7";
-const API_URL = "http://api.mediastack.com/v1/news";
+const API_URL = "https://newsapi.org/v2/top-headlines?country=us&category=business";
 exports.API_URL = API_URL;
-const API_KEY = "48c9f449311e9fe2c552ce339873a6df";
+const API_KEY = "7c8b2e0da34e47fda378f9085c7f0fa7";
 exports.API_KEY = API_KEY;
 },{}],"9e5fe3215f8d18b157c390c4b6bd893a":[function(require,module,exports) {
 "use strict";
@@ -1712,9 +1712,11 @@ class NewsContent1 extends _View.default {
               <p class="individual-author">${this._data.author}</p>
               <p class="individual-newsfeed-logo">NewsFeed news</p>
             </div>
-              
+              <h3 class="individual-h3-description">
+                          ${this._data.description}
+              </h3> 
               <p class="individual-p-content">
-              ${this._data.description}
+              ${this._data.content}
               </p>
             </div>
 
@@ -1740,11 +1742,6 @@ class NewsContent1 extends _View.default {
 var _default = new NewsContent1();
 
 exports.default = _default;
-{
-  /* <h3 class="individual-h3-description">
-              ${this._data.description}
-              </h3> */
-}
 },{"./View":"4ec096bd0d38267c195c28613720063a"}]},{},["557388dd5694df16b732ee34557446a1","d25765e4aef0a5aa91af4d2787793571","36bb694935dd05086a048288ecc1c354"], null)
 
 //# sourceMappingURL=controller.892ce60f.js.map
