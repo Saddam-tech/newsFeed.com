@@ -2,10 +2,10 @@
   "name": "newsfeed.com",
   "version": "1.0.0",
   "description": "Simple news website",
-  "main": "index.html",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "≈ --dist-dir ./dist"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Saddam Salokhiddinov",
   "license": "ISC",
